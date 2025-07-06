@@ -12,9 +12,16 @@ main:
 	loadn r1, #'#'
 	outchar r1, r0
 
-	
+	loadn r0, #0
+	loadn r1, #0	
+	loadn r2, #400
+
 	main_loop:
-	call mv_cursor
+
+	mod r3, r0, r2
+	cmp r1, r3
+	ceq mv_cursor
+	inc r0
 	jmp main_loop	
 
 
